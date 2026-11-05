@@ -1,0 +1,21 @@
+{
+  "name": "petmate-landing",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "prerender": "node scripts/prerender.mjs",
+    "predev": "npm run prerender",
+    "dev": "vite",
+    "prebuild": "npm run prerender",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {}
+}
