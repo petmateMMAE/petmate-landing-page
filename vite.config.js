@@ -16,6 +16,7 @@ export default defineConfig({
         cookies: resolve(process.cwd(), 'legal/politica-cookies.html'),
         pagos: resolve(process.cwd(), 'legal/politica-pagos.html'),
         eliminacion: resolve(process.cwd(), 'legal/politica-eliminacion-cuentas.html'),
+        seguridad: resolve(process.cwd(), 'legal/seguridad.html'),
       },
     },
   },

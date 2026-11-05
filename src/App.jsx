@@ -561,6 +561,7 @@ export default function App() {
               <a href="legal/aviso-privacidad-simplificado.html">Privacidad</a>
               <a href="legal/terminos-condiciones.html">Términos y condiciones</a>
               <a href="legal/politica-cookies.html">Cookies</a>
+              <a href="legal/seguridad.html">Seguridad de la información</a>
             </div>
           </div>
         </div>
