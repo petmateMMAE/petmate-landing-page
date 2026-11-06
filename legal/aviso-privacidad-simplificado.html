@@ -1,62 +1,444 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es-MX">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Aviso de Privacidad Simplificado — PetMate</title>
-<meta name="description" content="Aviso de privacidad simplificado de PetMate conforme a la LFPDPPP." />
-<link rel="stylesheet" href="/assets/css/styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#22517F" />
+  <title>Aviso de Privacidad Simplificado — PetMate</title>
+  <meta name="description" content="Aviso de privacidad simplificado de PetMate conforme a la LFPDPPP." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  
+  <style>
+    /* =============================================================
+       DISEÑO PREMIUM PARA PÁGINAS LEGALES (Mismo que Términos)
+       ============================================================= */
+    
+    /* Hero Oscuro */
+    .legal-hero {
+      background: var(--grad-navy);
+      color: var(--white);
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 2px solid var(--navy-ink);
+    }
+    .legal-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 1px 1px, rgba(255,255,255,.06) 1px, transparent 0),
+        radial-gradient(circle at 80% 0%, rgba(242,162,99,.15), transparent 50%);
+      background-size: 32px 32px, 100% 100%;
+      pointer-events: none;
+    }
+    .legal-hero__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+    .legal-hero h1 {
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      letter-spacing: -.03em;
+      line-height: 1.05;
+      color: var(--white);
+      margin-top: 24px;
+    }
+    .legal-hero p {
+      color: rgba(255,255,255,.7);
+      font-size: 1.05rem;
+      margin-top: 16px;
+    }
+    .legal-hero .eyebrow {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(255,255,255,.2);
+      color: var(--white);
+      box-shadow: none;
+      backdrop-filter: blur(8px);
+    }
+    .legal-hero .eyebrow__dot {
+      background: var(--orange);
+    }
+    
+    /* Aviso de validación flotante */
+    .legal-notice {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.15);
+      border-left: 4px solid var(--orange);
+      padding: 20px 24px;
+      border-radius: 12px;
+      margin-top: 40px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      color: rgba(255,255,255,.9);
+      font-size: .95rem;
+      line-height: 1.6;
+      backdrop-filter: blur(12px);
+    }
+
+    /* Layout de 2 columnas */
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 64px;
+      padding: 64px 0 100px;
+    }
+    @media (min-width: 1024px) {
+      .legal-layout {
+        grid-template-columns: 280px 1fr;
+        align-items: start;
+      }
+    }
+
+    /* Sidebar (Índice) */
+    .legal-toc {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .legal-toc__title {
+      font-family: var(--font-ui);
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: var(--muted-2);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .legal-toc ul {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border-left: 2px solid var(--line);
+      padding-left: 16px;
+    }
+    .legal-toc a {
+      display: block;
+      font-size: .9rem;
+      color: var(--muted);
+      padding: 6px 0;
+      transition: all .2s var(--ease);
+      line-height: 1.4;
+    }
+    .legal-toc a:hover {
+      color: var(--orange-deep);
+      transform: translateX(4px);
+      font-weight: 500;
+    }
+
+    /* Contenido Legal */
+    .legal-content {
+      max-width: 780px;
+    }
+    .legal-content section {
+      margin-bottom: 48px;
+      scroll-margin-top: 120px;
+    }
+    .legal-content h2 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--navy-ink);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .legal-content h2 span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--orange-wash);
+      color: var(--orange-deep);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 800;
+      border: 1px solid var(--orange);
+    }
+    .legal-content p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--ink-2);
+      margin-bottom: 20px;
+    }
+    .legal-content ul {
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .legal-content li {
+      position: relative;
+      padding-left: 28px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--ink-2);
+    }
+    .legal-content li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      color: var(--orange);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .legal-content a {
+      color: var(--navy);
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-color: rgba(34, 81, 127, 0.2);
+      text-underline-offset: 3px;
+      transition: all .2s;
+    }
+    .legal-content a:hover {
+      color: var(--orange-deep);
+      text-decoration-color: var(--orange);
+    }
+
+    /* Tarjeta de Contacto */
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 20px 40px -10px rgba(24,58,89,.08);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+    @media (min-width: 600px) {
+      .contact-card { grid-template-columns: repeat(2, 1fr); }
+    }
+    .contact-card__item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .contact-card__icon {
+      width: 40px;
+      height: 40px;
+      background: var(--orange-wash);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .contact-card__label {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .contact-card__value {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy-ink);
+      line-height: 1.4;
+    }
+
+    /* Footer de documentos */
+    .related-docs {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 2px solid var(--line);
+    }
+    .related-docs p {
+      font-size: .85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .related-docs__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .related-docs__links a {
+      display: inline-flex;
+      padding: 8px 16px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--navy-ink);
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .related-docs__links a:hover {
+      border-color: var(--orange);
+      background: var(--orange-wash);
+      color: var(--orange-deep);
+    }
+  </style>
 </head>
 <body>
-<header class="nav">
-  <div class="container nav__inner">
-    <a href="../index.html" class="brand">
-      <span class="brand__mark" aria-hidden="true">
-        <svg viewBox="0 0 40 40" width="30" height="30"><circle cx="20" cy="20" r="20" fill="var(--coral)"/><g fill="#fff"><ellipse cx="20" cy="24" rx="6" ry="5"/><circle cx="13" cy="16" r="3"/><circle cx="20" cy="13" r="3"/><circle cx="27" cy="16" r="3"/></g></svg>
-      </span>
-      <span class="brand__name">PetMate</span>
-    </a>
-    <a class="btn btn--ghost btn--sm" href="../index.html">← Volver al inicio</a>
-  </div>
-</header>
 
-<main class="legal container container--narrow">
-  <h1>Aviso de Privacidad Simplificado</h1>
-  <div class="notice">
-    ⚠️ <strong>Documento editable.</strong> Este aviso requiere validación jurídica antes de su publicación. Los campos entre llaves deben completarse con la información oficial de PetMate.
-  </div>
+  <!-- Barra de navegación simple (transparente sobre el hero) -->
+  <header class="nav" style="position: absolute; top: 0; left: 0; right: 0; background: transparent; border: none; z-index: 10;">
+    <div class="container nav__inner">
+      <a href="../index.html" class="brand" aria-label="PetMate, volver al inicio" style="color: white;">
+        <img class="brand__mark" src="/assets/img/petmate-mark.jpg" alt="" width="44" height="44" style="box-shadow: 0 0 0 2px rgba(255,255,255,0.2);" />
+        <span>PetMate</span>
+      </a>
+      <a class="btn btn--nav" href="../index.html" style="border-color: rgba(255,255,255,0.3); color: white;">← Volver al inicio</a>
+    </div>
+  </header>
 
-  <p>{{RAZON_SOCIAL}}, con domicilio en {{DOMICILIO}}, es responsable del tratamiento de los datos personales que recabe a través de PetMate.</p>
+  <!-- Hero Legal Oscuro -->
+  <section class="legal-hero">
+    <div class="container">
+      <div class="legal-hero__inner">
+        <span class="eyebrow">
+          <span class="eyebrow__dot" aria-hidden="true"></span>
+          Documento legal
+        </span>
+        <h1>Aviso de Privacidad Simplificado</h1>
+        <p>Última actualización: <span id="legal-date"></span></p>
+        
+        
+      </div>
+    </div>
+  </section>
 
-  <h2>Datos que recabamos</h2>
-  <ul>
-    <li>Datos de identificación y contacto del propietario.</li>
-    <li>Datos de la mascota: nombre, especie, raza, edad, peso.</li>
-    <li>Información médica y de cuidado de la mascota.</li>
-  </ul>
+  <!-- Contenido Principal -->
+  <main class="container">
+    <div class="legal-layout">
+      
+      <!-- Sidebar (Índice) -->
+      <aside class="legal-toc">
+        <div>
+          <div class="legal-toc__title">En esta página</div>
+          <ul>
+            <li><a href="#s1">1. Identidad del responsable</a></li>
+            <li><a href="#s2">2. Datos que recabamos</a></li>
+            <li><a href="#s3">3. Finalidades del tratamiento</a></li>
+            <li><a href="#s4">4. Consentimiento</a></li>
+            <li><a href="#s5">5. Derechos ARCO</a></li>
+            <li><a href="#s6">6. Transferencias</a></li>
+            <li><a href="#s7">7. Cookies y tecnologías</a></li>
+            <li><a href="#s8">8. Cambios al aviso</a></li>
+          </ul>
+        </div>
+      </aside>
 
-  <h2>Finalidades del tratamiento</h2>
-  <ul>
-    <li>Administrar la cuenta y el carnet digital.</li>
-    <li>Organizar la información médica de las mascotas.</li>
-    <li>Facilitar el intercambio autorizado de información mediante QR.</li>
-    <li>Enviar recordatorios y notificaciones relacionadas con el servicio.</li>
-  </ul>
+      <!-- Texto Legal -->
+      <article class="legal-content">
+        
+        <section id="s1">
+          <h2><span>1</span> Identidad y domicilio del responsable</h2>
+          <p>
+            <strong>PetMate</strong>, con domicilio en <strong>HGO 17, 42836 Col. Sesenta y Dos, Hgo.</strong>, y correo electrónico <strong>pmate3516@gmail.com</strong>, es responsable del tratamiento de los datos personales que recabe a través de la plataforma PetMate, en cumplimiento con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).
+          </p>
+        </section>
 
-  <h2>Derechos ARCO</h2>
-  <p>Puedes ejercer tus derechos de Acceso, Rectificación, Cancelación y Oposición enviando una solicitud a <code>{{CORREO_CONTACTO}}</code>.</p>
+        <section id="s2">
+          <h2><span>2</span> Datos personales que recabamos</h2>
+          <p>Para cumplir con las finalidades descritas en este aviso, PetMate recaba las siguientes categorías de datos:</p>
+          <ul>
+            <li><strong>Datos del propietario (Tutor):</strong> Nombre, correo electrónico, número telefónico y datos de contacto.</li>
+            <li><strong>Datos de la mascota:</strong> Nombre, especie, raza, edad, peso y fotografías.</li>
+            <li><strong>Datos sensibles:</strong> Información médica y de cuidado de la mascota (vacunas, alergias, desparasitaciones, historial clínico y recetas).</li>
+          </ul>
+        </section>
 
-  <h2>Transferencias</h2>
-  <p>Tus datos no se transfieren a terceros sin tu consentimiento, salvo las excepciones previstas en la LFPDPPP.</p>
+        <section id="s3">
+          <h2><span>3</span> Finalidades del tratamiento</h2>
+          <p>Los datos personales que recabamos son utilizados para las siguientes finalidades primarias (necesarias para el servicio):</p>
+          <ul>
+            <li>Administrar la cuenta del usuario y el carnet digital de la mascota.</li>
+            <li>Organizar y almacenar la información médica para su consulta.</li>
+            <li>Facilitar el intercambio autorizado de información mediante la generación de códigos QR.</li>
+            <li>Enviar recordatorios y notificaciones relacionadas con el servicio (cuando la funcionalidad esté activa).</li>
+            <li>Dar cumplimiento a obligaciones legales aplicables.</li>
+          </ul>
+          <p>De manera adicional, podríamos utilizar tus datos para finalidades secundarias como encuestas de satisfacción o avisos de nuevas funciones. Si no deseas que tus datos sean tratados para estas finalidades, puedes comunicarlo enviando un correo a <strong>pmate3516@gmail.com</strong>.</p>
+        </section>
 
-  <p>Para más información consulta el <a href="aviso-privacidad-integral.html">Aviso de Privacidad Integral</a>.</p>
-</main>
+        <section id="s4">
+          <h2><span>4</span> Consentimiento expreso para datos sensibles</h2>
+          <p>
+            De conformidad con el artículo 9 de la LFPDPPP, al registrar información relacionada con la salud de tu mascota, otorgas tu <strong>consentimiento expreso</strong> para el tratamiento de dichos datos sensibles, los cuales serán utilizados únicamente para las finalidades descritas en este aviso.
+          </p>
+        </section>
 
-<footer class="footer">
-  <div class="container footer__bottom">
-    <p>© <span id="year"></span> PetMate. Todos los derechos reservados.</p>
-  </div>
-</footer>
-<script type="module" src="/assets/js/main.js"></script>
+        <section id="s5">
+          <h2><span>5</span> Derechos ARCO y revocación del consentimiento</h2>
+          <p>
+            Tienes derecho a conocer qué datos personales tenemos de ti, para qué los utilizamos y las condiciones del uso que les damos (Acceso). Asimismo, es tu derecho solicitar la corrección de tu información personal en caso de que esté desactualizada, sea inexacta o incompleta (Rectificación); que la eliminemos de nuestros registros o bases de datos cuando consideres que la misma no está siendo utilizada conforme a los principios, deberes y obligaciones previstas en la normativa (Cancelación); así como oponerte al uso de tus datos personales para fines específicos (Oposición).
+          </p>
+          <p>
+            Para ejercer cualquiera de los derechos ARCO o revocar tu consentimiento, deberás enviar una solicitud a <strong>pmate3516@gmail.com</strong> que incluya tu nombre completo, el derecho que deseas ejercer y los documentos que acrediten tu identidad.
+          </p>
+        </section>
+
+        <section id="s6">
+          <h2><span>6</span> Transferencias de datos</h2>
+          <p>
+            Tus datos personales no serán transferidos a terceros sin tu consentimiento previo, salvo las excepciones previstas en el artículo 37 de la LFPDPPP (por ejemplo, cuando sea requerido por una autoridad competente debidamente fundada y motivada).
+          </p>
+        </section>
+
+        <section id="s7">
+          <h2><span>7</span> Uso de cookies y tecnologías similares</h2>
+          <p>
+            PetMate puede utilizar cookies y tecnologías similares en su sitio web para mejorar la experiencia del usuario. Puedes consultar más detalles en nuestra <a href="politica-cookies.html">Política de Cookies</a>.
+          </p>
+        </section>
+
+        <section id="s8">
+          <h2><span>8</span> Cambios al aviso de privacidad</h2>
+          <p>
+            Este aviso de privacidad puede sufrir modificaciones, cambios o actualizaciones derivadas de nuevos requerimientos legales, de nuestras propias necesidades por los productos o servicios que ofrecemos, o por cambios en nuestro modelo de negocio. Nos comprometemos a mantenerte informado sobre los cambios que pueda sufrir este aviso a través de nuestra plataforma.
+          </p>
+          <p>Para más información, te invitamos a consultar nuestro <a href="aviso-privacidad-integral.html">Aviso de Privacidad Integral</a>.</p>
+        </section>
+
+        <div class="related-docs">
+          <p>Documentos relacionados</p>
+          <div class="related-docs__links">
+            <a href="aviso-privacidad-integral.html">Aviso de Privacidad Integral</a>
+            <a href="terminos-condiciones.html">Términos y Condiciones</a>
+            <a href="politica-datos.html">Política de Datos</a>
+            <a href="politica-cookies.html">Política de Cookies</a>
+            <a href="politica-pagos.html">Pagos y Cancelaciones</a>
+            <a href="politica-eliminacion-cuentas.html">Eliminación de Cuentas</a>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__bottom">
+      <span>© <span id="year"></span> PetMate</span>
+      <a href="../index.html" style="color: var(--orange);">Volver al inicio</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const d = new Date();
+    const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+    const dateEl = document.getElementById('legal-date');
+    if (dateEl) {
+      dateEl.textContent = `${d.getDate()} de ${meses[d.getMonth()]} de ${d.getFullYear()}`;
+    }
+  </script>
 </body>
 </html>
