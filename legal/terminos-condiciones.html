@@ -15,7 +15,7 @@
   
   <style>
     /* =============================================================
-       VARIABLES Y RESET (Por si no cargan los estilos globales)
+       VARIABLES Y RESET
        ============================================================= */
     :root {
       --navy: #22517F;
@@ -266,10 +266,6 @@
       border: 1px solid var(--line);
     }
 
-    @media (max-width: 768px) {
-      .legal-content { padding: 32px 24px; }
-    }
-
     .legal-content section {
       margin-bottom: 56px;
       scroll-margin-top: 100px;
@@ -344,7 +340,7 @@
       font-size: 1.1rem;
     }
 
-    .legal-content a:not(.contact-card a) {
+    .legal-content a {
       color: var(--navy);
       font-weight: 500;
       text-decoration: underline;
@@ -353,7 +349,7 @@
       transition: all 0.2s;
     }
 
-    .legal-content a:not(.contact-card a):hover {
+    .legal-content a:hover {
       color: var(--orange-deep);
       text-decoration-color: var(--orange);
     }
@@ -451,6 +447,7 @@
       font-weight: 500;
       color: var(--navy-ink);
       transition: all 0.2s;
+      text-decoration: none;
     }
 
     .related-docs__links a:hover {
@@ -494,6 +491,33 @@
 
     .legal-footer a:hover {
       color: var(--orange-deep);
+    }
+
+    /* =============================================================
+       AJUSTES PARA MÓVILES (SOLUCIÓN AL MENÚ ENCIMADO)
+       ============================================================= */
+    @media (max-width: 1024px) {
+      .legal-sidebar {
+        position: relative; /* Desactiva el sticky */
+        top: 0;
+        margin-bottom: 24px;
+        padding: 24px;
+      }
+      
+      .legal-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .legal-nav a {
+        background: var(--paper);
+        border: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .legal-content { padding: 32px 24px; }
     }
   </style>
 </head>
@@ -830,7 +854,10 @@
     document.getElementById('year').textContent = new Date().getFullYear();
     const d = new Date();
     const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-    document.getElementById('legal-date').textContent = `${d.getDate()} de ${meses[d.getMonth()]} de ${d.getFullYear()}`;
+    const dateEl = document.getElementById('legal-date');
+    if (dateEl) {
+      dateEl.textContent = `${d.getDate()} de ${meses[d.getMonth()]} de ${d.getFullYear()}`;
+    }
   </script>
 </body>
 </html>

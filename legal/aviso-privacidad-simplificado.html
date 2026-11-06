@@ -266,10 +266,6 @@
       border: 1px solid var(--line);
     }
 
-    @media (max-width: 768px) {
-      .legal-content { padding: 32px 24px; }
-    }
-
     .legal-content section {
       margin-bottom: 56px;
       scroll-margin-top: 100px;
@@ -436,6 +432,33 @@
 
     .legal-footer a:hover {
       color: var(--orange-deep);
+    }
+
+    /* =============================================================
+       AJUSTES PARA MÓVILES (SOLUCIÓN AL MENÚ ENCIMADO)
+       ============================================================= */
+    @media (max-width: 1024px) {
+      .legal-sidebar {
+        position: relative; /* Desactiva el sticky */
+        top: 0;
+        margin-bottom: 24px;
+        padding: 24px;
+      }
+      
+      .legal-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .legal-nav a {
+        background: var(--paper);
+        border: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .legal-content { padding: 32px 24px; }
     }
   </style>
 </head>
