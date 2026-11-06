@@ -7,174 +7,325 @@
   <title>Aviso de Privacidad Simplificado — PetMate</title>
   <meta name="description" content="Aviso de privacidad simplificado de PetMate conforme a la LFPDPPP." />
   
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/styles.css" />
   
   <style>
     /* =============================================================
-       DISEÑO PREMIUM PARA PÁGINAS LEGALES (Mismo que Términos)
+       VARIABLES Y RESET
        ============================================================= */
+    :root {
+      --navy: #22517F;
+      --navy-deep: #173F66;
+      --navy-ink: #183A59;
+      --orange: #F2A263;
+      --orange-deep: #DC8140;
+      --orange-wash: #FFF6EC;
+      --paper: #FBF9F3;
+      --ink: #1E3345;
+      --ink-2: #3A4F63;
+      --muted: #657482;
+      --line: #E4E8EB;
+      --white: #FFFFFF;
+      
+      --font-display: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+      --font-ui: 'Geist', ui-sans-serif, system-ui, sans-serif;
+      
+      --ease: cubic-bezier(.22,.61,.36,1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     
-    /* Hero Oscuro */
+    body {
+      font-family: var(--font-ui);
+      background-color: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: min(100% - 48px, 1200px);
+      margin-inline: auto;
+    }
+
+    /* =============================================================
+       HEADER FLOTANTE
+       ============================================================= */
+    .legal-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 72px;
+      background: rgba(251, 249, 243, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(34, 81, 127, 0.08);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+    }
+    
+    .legal-header__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--navy-ink);
+    }
+
+    .brand__mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--navy-ink);
+      transition: all 0.2s var(--ease);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .btn-back:hover {
+      border-color: var(--orange);
+      color: var(--orange-deep);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(242, 162, 99, 0.15);
+    }
+
+    /* =============================================================
+       HERO LEGAL PREMIUM
+       ============================================================= */
     .legal-hero {
-      background: var(--grad-navy);
+      background: linear-gradient(135deg, var(--navy-ink) 0%, var(--navy-deep) 100%);
       color: var(--white);
-      padding: 100px 0 80px;
+      padding: 160px 0 100px;
       position: relative;
       overflow: hidden;
-      border-bottom: 2px solid var(--navy-ink);
     }
+
+    /* Patrón de puntos y luz */
     .legal-hero::before {
       content: "";
       position: absolute;
       inset: 0;
       background-image: 
-        radial-gradient(circle at 1px 1px, rgba(255,255,255,.06) 1px, transparent 0),
-        radial-gradient(circle at 80% 0%, rgba(242,162,99,.15), transparent 50%);
+        radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0),
+        radial-gradient(circle at 80% 20%, rgba(242,162,99,0.15), transparent 40%);
       background-size: 32px 32px, 100% 100%;
       pointer-events: none;
     }
+
     .legal-hero__inner {
       position: relative;
       z-index: 1;
       max-width: 800px;
-    }
-    .legal-hero h1 {
-      font-size: clamp(3rem, 6vw, 4.5rem);
-      letter-spacing: -.03em;
-      line-height: 1.05;
-      color: var(--white);
-      margin-top: 24px;
-    }
-    .legal-hero p {
-      color: rgba(255,255,255,.7);
-      font-size: 1.05rem;
-      margin-top: 16px;
-    }
-    .legal-hero .eyebrow {
-      background: rgba(255,255,255,.1);
-      border-color: rgba(255,255,255,.2);
-      color: var(--white);
-      box-shadow: none;
-      backdrop-filter: blur(8px);
-    }
-    .legal-hero .eyebrow__dot {
-      background: var(--orange);
-    }
-    
-    /* Aviso de validación flotante */
-    .legal-notice {
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.15);
-      border-left: 4px solid var(--orange);
-      padding: 20px 24px;
-      border-radius: 12px;
-      margin-top: 40px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      color: rgba(255,255,255,.9);
-      font-size: .95rem;
-      line-height: 1.6;
-      backdrop-filter: blur(12px);
+      animation: slideUp 0.8s var(--ease) both;
     }
 
-    /* Layout de 2 columnas */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+      margin-bottom: 24px;
+    }
+
+    .eyebrow__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 0 3px rgba(242,162,99,0.3);
+    }
+
+    .legal-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .legal-hero p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    /* =============================================================
+       LAYOUT PRINCIPAL
+       ============================================================= */
     .legal-layout {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 64px;
-      padding: 64px 0 100px;
+      gap: 48px;
+      padding: 64px 0 120px;
     }
+
     @media (min-width: 1024px) {
       .legal-layout {
-        grid-template-columns: 280px 1fr;
+        grid-template-columns: 300px 1fr;
         align-items: start;
       }
     }
 
-    /* Sidebar (Índice) */
-    .legal-toc {
+    /* =============================================================
+       SIDEBAR (Índice)
+       ============================================================= */
+    .legal-sidebar {
       position: sticky;
-      top: 100px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
+      top: 104px;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 32px 24px;
+      box-shadow: 0 12px 32px -8px rgba(24,58,89,0.06);
+      border: 1px solid var(--line);
     }
-    .legal-toc__title {
-      font-family: var(--font-ui);
-      font-size: .75rem;
+
+    .legal-sidebar__title {
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: .15em;
-      color: var(--muted-2);
+      letter-spacing: 0.1em;
+      color: var(--muted);
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
     }
-    .legal-toc ul {
+
+    .legal-nav {
       display: flex;
       flex-direction: column;
       gap: 4px;
-      border-left: 2px solid var(--line);
-      padding-left: 16px;
-    }
-    .legal-toc a {
-      display: block;
-      font-size: .9rem;
-      color: var(--muted);
-      padding: 6px 0;
-      transition: all .2s var(--ease);
-      line-height: 1.4;
-    }
-    .legal-toc a:hover {
-      color: var(--orange-deep);
-      transform: translateX(4px);
-      font-weight: 500;
     }
 
-    /* Contenido Legal */
+    .legal-nav a {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--ink-2);
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.2s var(--ease);
+      line-height: 1.4;
+    }
+
+    .legal-nav a:hover {
+      background: var(--orange-wash);
+      color: var(--orange-deep);
+      font-weight: 500;
+      transform: translateX(4px);
+    }
+
+    /* =============================================================
+       CONTENIDO LEGAL
+       ============================================================= */
     .legal-content {
-      max-width: 780px;
+      max-width: 800px;
+      background: var(--white);
+      padding: 48px;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px -12px rgba(24,58,89,0.05);
+      border: 1px solid var(--line);
     }
+
+    @media (max-width: 768px) {
+      .legal-content { padding: 32px 24px; }
+    }
+
     .legal-content section {
-      margin-bottom: 48px;
-      scroll-margin-top: 120px;
+      margin-bottom: 56px;
+      scroll-margin-top: 100px;
     }
+
+    .legal-content section:last-of-type {
+      margin-bottom: 0;
+    }
+
     .legal-content h2 {
       font-family: var(--font-display);
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: var(--navy-ink);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
+      letter-spacing: -0.02em;
     }
+
     .legal-content h2 span {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       background: var(--orange-wash);
       color: var(--orange-deep);
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 1rem;
       font-weight: 800;
       border: 1px solid var(--orange);
+      flex-shrink: 0;
     }
+
     .legal-content p {
       font-size: 1.05rem;
       line-height: 1.8;
       color: var(--ink-2);
       margin-bottom: 20px;
     }
+
+    .legal-content strong {
+      color: var(--navy-ink);
+      font-weight: 600;
+    }
+
     .legal-content ul {
       margin-bottom: 24px;
       display: flex;
       flex-direction: column;
       gap: 12px;
+      padding-left: 0;
+      list-style: none;
     }
+
     .legal-content li {
       position: relative;
       padding-left: 28px;
@@ -182,124 +333,128 @@
       line-height: 1.7;
       color: var(--ink-2);
     }
+
     .legal-content li::before {
       content: "→";
       position: absolute;
       left: 0;
-      top: 2px;
+      top: 0;
       color: var(--orange);
       font-weight: bold;
       font-size: 1.1rem;
     }
+
     .legal-content a {
       color: var(--navy);
       font-weight: 500;
       text-decoration: underline;
-      text-decoration-color: rgba(34, 81, 127, 0.2);
+      text-decoration-color: rgba(34, 81, 127, 0.3);
       text-underline-offset: 3px;
-      transition: all .2s;
+      transition: all 0.2s;
     }
+
     .legal-content a:hover {
       color: var(--orange-deep);
       text-decoration-color: var(--orange);
     }
 
-    /* Tarjeta de Contacto */
-    .contact-card {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 32px;
-      box-shadow: 0 20px 40px -10px rgba(24,58,89,.08);
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      margin-top: 32px;
-    }
-    @media (min-width: 600px) {
-      .contact-card { grid-template-columns: repeat(2, 1fr); }
-    }
-    .contact-card__item {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .contact-card__icon {
-      width: 40px;
-      height: 40px;
-      background: var(--orange-wash);
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-    .contact-card__label {
-      font-size: .75rem;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      color: var(--muted);
-      font-weight: 700;
-    }
-    .contact-card__value {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--navy-ink);
-      line-height: 1.4;
+    /* =============================================================
+       DOCUMENTOS RELACIONADOS
+       ============================================================= */
+    .related-docs {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
     }
 
-    /* Footer de documentos */
-    .related-docs {
-      margin-top: 64px;
-      padding-top: 32px;
-      border-top: 2px solid var(--line);
-    }
     .related-docs p {
-      font-size: .85rem;
+      font-size: 0.8rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: .1em;
-      color: var(--navy);
+      letter-spacing: 0.1em;
+      color: var(--muted);
       margin-bottom: 16px;
     }
+
     .related-docs__links {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
     }
+
     .related-docs__links a {
       display: inline-flex;
       padding: 8px 16px;
-      background: var(--white);
+      background: var(--paper);
       border: 1px solid var(--line);
       border-radius: 8px;
-      font-size: .85rem;
+      font-size: 0.85rem;
       font-weight: 500;
       color: var(--navy-ink);
+      transition: all 0.2s;
       text-decoration: none;
-      transition: all .2s;
     }
+
     .related-docs__links a:hover {
       border-color: var(--orange);
       background: var(--orange-wash);
+      color: var(--orange-deep);
+      transform: translateY(-1px);
+    }
+
+    /* =============================================================
+       FOOTER
+       ============================================================= */
+    .legal-footer {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      padding: 32px 0;
+      text-align: center;
+    }
+
+    .legal-footer__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    @media (min-width: 600px) {
+      .legal-footer__inner {
+        flex-direction: row;
+      }
+    }
+
+    .legal-footer a {
+      color: var(--navy-ink);
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .legal-footer a:hover {
       color: var(--orange-deep);
     }
   </style>
 </head>
 <body>
 
-  <!-- Barra de navegación simple (transparente sobre el hero) -->
-  <header class="nav" style="position: absolute; top: 0; left: 0; right: 0; background: transparent; border: none; z-index: 10;">
-    <div class="container nav__inner">
-      <a href="../index.html" class="brand" aria-label="PetMate, volver al inicio" style="color: white;">
-        <img class="brand__mark" src="/assets/img/petmate-mark.jpg" alt="" width="44" height="44" style="box-shadow: 0 0 0 2px rgba(255,255,255,0.2);" />
+  <!-- HEADER FLOTANTE -->
+  <header class="legal-header">
+    <div class="container legal-header__inner">
+      <a href="../index.html" class="brand" aria-label="PetMate, volver al inicio">
+        <img class="brand__mark" src="/assets/img/petmate-mark.jpg" alt="PetMate Logo" />
         <span>PetMate</span>
       </a>
-      <a class="btn btn--nav" href="../index.html" style="border-color: rgba(255,255,255,0.3); color: white;">← Volver al inicio</a>
+      <a href="../index.html" class="btn-back">
+        ← Volver al inicio
+      </a>
     </div>
   </header>
 
-  <!-- Hero Legal Oscuro -->
+  <!-- HERO LEGAL PREMIUM -->
   <section class="legal-hero">
     <div class="container">
       <div class="legal-hero__inner">
@@ -309,34 +464,30 @@
         </span>
         <h1>Aviso de Privacidad Simplificado</h1>
         <p>Última actualización: <span id="legal-date"></span></p>
-        
-        
       </div>
     </div>
   </section>
 
-  <!-- Contenido Principal -->
+  <!-- CONTENIDO PRINCIPAL -->
   <main class="container">
     <div class="legal-layout">
       
-      <!-- Sidebar (Índice) -->
-      <aside class="legal-toc">
-        <div>
-          <div class="legal-toc__title">En esta página</div>
-          <ul>
-            <li><a href="#s1">1. Identidad del responsable</a></li>
-            <li><a href="#s2">2. Datos que recabamos</a></li>
-            <li><a href="#s3">3. Finalidades del tratamiento</a></li>
-            <li><a href="#s4">4. Consentimiento</a></li>
-            <li><a href="#s5">5. Derechos ARCO</a></li>
-            <li><a href="#s6">6. Transferencias</a></li>
-            <li><a href="#s7">7. Cookies y tecnologías</a></li>
-            <li><a href="#s8">8. Cambios al aviso</a></li>
-          </ul>
-        </div>
+      <!-- SIDEBAR (Índice) -->
+      <aside class="legal-sidebar">
+        <div class="legal-sidebar__title">En esta página</div>
+        <nav class="legal-nav">
+          <a href="#s1">1. Identidad del responsable</a>
+          <a href="#s2">2. Datos que recabamos</a>
+          <a href="#s3">3. Finalidades del tratamiento</a>
+          <a href="#s4">4. Consentimiento</a>
+          <a href="#s5">5. Derechos ARCO</a>
+          <a href="#s6">6. Transferencias</a>
+          <a href="#s7">7. Cookies y tecnologías</a>
+          <a href="#s8">8. Cambios al aviso</a>
+        </nav>
       </aside>
 
-      <!-- Texto Legal -->
+      <!-- TEXTO LEGAL -->
       <article class="legal-content">
         
         <section id="s1">
@@ -424,10 +575,11 @@
     </div>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__bottom">
-      <span>© <span id="year"></span> PetMate</span>
-      <a href="../index.html" style="color: var(--orange);">Volver al inicio</a>
+  <!-- FOOTER -->
+  <footer class="legal-footer">
+    <div class="container legal-footer__inner">
+      <span>© <span id="year"></span> PetMate. Todos los derechos reservados.</span>
+      <a href="../index.html">Volver al inicio</a>
     </div>
   </footer>
 
