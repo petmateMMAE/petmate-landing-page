@@ -1,5 +1,5 @@
 /* =============================================================
-   PETMATE — VIP MINIMALIST EMOTIONAL UI (FONDO Y FOOTER CORREGIDOS)
+   PETMATE — VIP MINIMALIST EMOTIONAL UI (VERSIÓN PRODUCCIÓN)
    ============================================================= */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -35,8 +35,15 @@
 html{scroll-behavior:smooth}
 
 /* =============================================================
-   FONDO APLICADO DIRECTAMENTE AL BODY (SOLUCIÓN AL CORTE BLANCO)
+   BLINDAJE DEL FONDO (Para que Netlify no lo ponga en blanco)
    ============================================================= */
+html, body, #root {
+  background-color: transparent !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
 body{
   font-family:var(--font-ui);
   color:var(--ink);
@@ -44,23 +51,22 @@ body{
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
   
-  /* LA IMAGEN AHORA VA EN EL BODY */
-  background-image: url('../img/app/laptop3img.png');
-  background-size: cover;
-  background-position: center left; 
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-color: var(--paper); /* Respaldo por si la imagen tarda en cargar */
+  /* LA IMAGEN DE FONDO */
+  background-image: url('../img/app/laptop3img.png') !important;
+  background-size: cover !important;
+  background-position: center left !important; 
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
 }
 
-/* Un velo sutil general para que el texto resalte */
+/* El velo para que el texto se lea perfecto */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(251,249,243,0.1) 0%, rgba(251,249,243,0.5) 40%, rgba(251,249,243,0.9) 80%, rgba(251,249,243,1) 100%);
+  background: linear-gradient(90deg, rgba(251,249,243,0.1) 0%, rgba(251,249,243,0.4) 40%, rgba(251,249,243,0.85) 70%, rgba(251,249,243,0.95) 100%) !important;
 }
 
 img,svg{display:block;max-width:100%}
@@ -80,12 +86,8 @@ p{color:var(--muted)}
 :focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:8px}
 
 /* =============================================================
-   LAYOUT PRINCIPAL (Quitamos fondos sólidos)
+   LAYOUT PRINCIPAL
    ============================================================= */
-#root, .site-shell.splash-mode {
-  background: transparent !important;
-}
-
 body:has(.splash-mode){
   overflow:hidden;
   height:100vh;
@@ -99,11 +101,12 @@ body:has(.splash-mode){
   height:100svh;
   overflow:hidden;
   position:relative;
+  background: transparent !important; /* Forzar transparencia */
 }
 
-/* Ocultamos el div del fondo porque ya está en el body */
+/* Ocultamos el div que ya no usamos */
 .hero__bg {
-  display: none; 
+  display: none !important; 
 }
 
 .splash-main{
@@ -147,7 +150,7 @@ body:has(.splash-mode){
   align-items: center;
   gap: 14px;
   padding: 8px 16px 8px 8px;
-  background: rgba(255, 255, 255, 0.637);
+  background: rgba(255,255,255,.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(34,81,127,.08);
@@ -559,23 +562,22 @@ body:has(.splash-mode){
 }
 
 /* =============================================================
-   FOOTER PREMIUM TRANSPARENTE (CRISTAL)
+   FOOTER PREMIUM (FORZADO A CRISTAL)
    ============================================================= */
 .splash-footer {
   position: relative; 
   z-index: 10;
   padding: 24px 0;
   
-  /* Fondo blanco con 40% de transparencia */
-  background: rgba(255, 255, 255, 0.1); 
+  /* Fondo transparente con !important para que Netlify no lo rompa */
+  background: rgba(255, 255, 255, 0.4) !important; 
   
-  /* Efecto de vidrio esmerilado */
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(20px);
+  /* Efecto de cristal */
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
   
-  /* Borde superior brillante para simular el cristal */
-  border-top: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.02) !important;
 }
 
 .splash-footer__inner {
@@ -647,11 +649,11 @@ body:has(.splash-mode){
 /* Tablets */
 @media (max-width: 1024px){
   body {
-    background-image: url('../img/app/tablet-bg.png');
-    background-position: center top; 
+    background-image: url('../img/app/tablet-bg.png') !important;
+    background-position: center top !important; 
   }
   body::before {
-    background: linear-gradient(180deg, rgba(251,249,243,0.9) 0%, rgba(251,249,243,0.5) 40%, transparent 90%);
+    background: linear-gradient(180deg, rgba(251,249,243,0.9) 0%, rgba(251,249,243,0.5) 40%, transparent 90%) !important;
   }
   .float-card--vaccine{left:-5%}
   .float-card--share{right:-5%}
@@ -665,12 +667,12 @@ body:has(.splash-mode){
   .site-shell.splash-mode{height:auto;min-height:100svh;overflow:visible;}
   
   body {
-    background-image: url('../img/app/imgmovil2.png');
-    background-position: center bottom;
-    background-attachment: scroll; 
+    background-image: url('../img/app/mobile-bg.jpg') !important;
+    background-position: center bottom !important;
+    background-attachment: scroll !important; 
   }
   body::before {
-    background: linear-gradient(180deg, rgba(251,249,243,0.95) 0%, rgba(251,249,243,0.7) 40%, transparent 70%);
+    background: linear-gradient(180deg, rgba(251,249,243,0.95) 0%, rgba(251,249,243,0.7) 40%, transparent 70%) !important;
   }
 
   .splash-main{padding:32px 0 48px}
