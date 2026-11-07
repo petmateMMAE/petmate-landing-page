@@ -1,5 +1,5 @@
 /* =============================================================
-   PETMATE — VIP MINIMALIST EMOTIONAL UI (CON LOGO DESTACADO)
+   PETMATE — VIP MINIMALIST EMOTIONAL UI (FIX BOTÓN VISIBLE)
    ============================================================= */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -113,11 +113,12 @@ body:has(.splash-mode){
   justify-content:center; 
   position:relative;
   overflow:hidden;
-  padding:24px 0;
+  padding: 16px 0; /* Reducido para dar más espacio vertical */
 }
 
 .splash-main .hero__grid{
-  height:100%;max-height:760px;
+  height:100%;
+  max-height: 850px; /* Aumentado el límite para que quepa el botón */
   align-items:center;padding:0;
   display:grid;
   grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
@@ -136,24 +137,24 @@ body:has(.splash-mode){
 .hero__copy {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px; /* Reducido de 20px a 16px para compactar */
   position: relative;
   z-index: 2;
-  padding-bottom: 20px;
+  padding-bottom: 0; 
   padding-left: 0; 
 }
 
-/* NUEVO: ESTILOS DEL LOGO Y NOMBRE DE LA APP */
+/* LOGO Y NOMBRE DE LA APP */
 .hero__brand {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .hero__brand-logo {
-  width: 52px;
-  height: 52px;
+  width: 48px; /* Ligeramente más chico */
+  height: 48px;
   border-radius: 14px;
   box-shadow: 0 8px 24px -6px rgba(34,81,127,.25), 0 0 0 2px rgba(255,255,255,.8);
   object-fit: cover;
@@ -161,19 +162,18 @@ body:has(.splash-mode){
 
 .hero__brand-name {
   font-family: var(--font-display);
-  font-size: 2.2rem;
+  font-size: 2rem; /* Ligeramente más chico */
   font-weight: 800;
   color: var(--navy-ink);
   letter-spacing: -0.04em;
   line-height: 1;
 }
-/* ------------------------------------- */
 
 .hero__social-proof {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 8px 16px 8px 8px;
+  padding: 6px 14px 6px 6px; /* Más compacto */
   background: rgba(255,255,255,.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -190,7 +190,7 @@ body:has(.splash-mode){
 
 .avatar-stack{display:flex;align-items:center}
 .avatar{
-  width:34px;height:34px;
+  width:30px;height:30px;
   border-radius:50%;
   background-color:#E4E8EB;
   background-size:cover;
@@ -205,20 +205,20 @@ body:has(.splash-mode){
 .avatar--count{
   background:var(--navy-ink);
   display:grid;place-items:center;
-  color:#fff;font-size:.7rem;font-weight:700;
+  color:#fff;font-size:.65rem;font-weight:700;
   letter-spacing:-.02em;
 }
 
 .social-proof__text{
   display:flex;flex-direction:column;gap:1px;
-  font-size:.8rem;color:var(--ink-2);
+  font-size:.75rem;color:var(--ink-2);
 }
 .social-proof__text strong{color:var(--navy-ink);font-weight:700}
-.stars{color:var(--gold);font-size:.85rem;letter-spacing:1px;line-height:1}
+.stars{color:var(--gold);font-size:.8rem;letter-spacing:1px;line-height:1}
 
 .eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
-  color: var(--orange-deep); font-size: .75rem; font-weight: 700;
+  color: var(--orange-deep); font-size: .7rem; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase;
   align-self: flex-start;
 }
@@ -235,8 +235,8 @@ body:has(.splash-mode){
 
 .hero h1 {
   color: var(--navy-ink);
-  font-size: clamp(3rem, 4.8vw, 4.5rem);
-  line-height: 1.02;
+  font-size: clamp(2.6rem, 4.2vw, 3.8rem); /* Tipografía un poco más compacta */
+  line-height: 1.05;
   max-width: 640px;
   letter-spacing: -.045em;
 }
@@ -257,8 +257,8 @@ body:has(.splash-mode){
 }
 
 .hero__lead {
-  font-size: 1.15rem;
-  line-height: 1.7;
+  font-size: 1.05rem; /* Más compacto */
+  line-height: 1.6;
   max-width: 520px;
   color: var(--ink-2);
 }
@@ -268,18 +268,18 @@ body:has(.splash-mode){
   list-style:none;
   display:flex;
   flex-direction:column;
-  gap:10px;
-  margin-top:8px;
+  gap:8px; /* Reducido */
+  margin-top:4px;
 }
 .hero__benefits li{
   display:flex;align-items:center;gap:10px;
-  font-size:.95rem;font-weight:500;color:var(--ink-2);
+  font-size:.9rem;font-weight:500;color:var(--ink-2);
 }
 .check{
   display:grid;place-items:center;
-  width:22px;height:22px;border-radius:50%;
+  width:20px;height:20px;border-radius:50%;
   background:rgba(63,199,158,.15);color:var(--mint-deep);
-  font-size:.75rem;font-weight:800;flex-shrink:0;
+  font-size:.7rem;font-weight:800;flex-shrink:0;
 }
 
 /* =============================================================
@@ -289,7 +289,7 @@ body:has(.splash-mode){
   display: flex;
   align-items: center;
   gap: 18px;
-  margin-top: 12px;
+  margin-top: 8px; /* Margen superior reducido */
 }
 
 .btn-play {
@@ -308,22 +308,22 @@ body:has(.splash-mode){
 }
 
 .btn-xl {
-  padding: 20px 36px 20px 28px;
-  min-height: 84px;
-  gap: 20px;
+  padding: 16px 32px 16px 24px; /* Ligeramente más compacto */
+  min-height: 76px;
+  gap: 16px;
   border-radius: 20px;
   box-shadow: 0 8px 0 var(--navy-ink), 0 24px 40px -12px rgba(20,18,26,.5);
 }
 .btn-xl .btn-play__icon {
-  width: 46px;
-  height: 46px;
+  width: 40px;
+  height: 40px;
 }
 .btn-xl .btn-play__small {
-  font-size: .8rem;
+  font-size: .75rem;
   letter-spacing: .12em;
 }
 .btn-xl .btn-play__big {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
 }
 
 .btn-play:hover {
@@ -345,8 +345,8 @@ body:has(.splash-mode){
 
 .hero__cta-note{
   display:flex;align-items:center;gap:8px;
-  font-size:.85rem;font-weight:500;color:var(--muted);
-  margin-top: 4px;
+  font-size:.8rem;font-weight:500;color:var(--muted);
+  margin-top: 2px;
 }
 .cta-note__dot{
   width:6px;height:6px;border-radius:50%;
@@ -360,7 +360,7 @@ body:has(.splash-mode){
   display:flex;
   flex-wrap:wrap;
   gap:8px;
-  margin-top:12px;
+  margin-top:8px; /* Reducido */
 }
 .trust-badge{
   display:inline-flex;align-items:center;gap:6px;
@@ -375,7 +375,7 @@ body:has(.splash-mode){
 .trust-badge__icon{font-size:.85rem;line-height:1}
 
 /* =============================================================
-   COLUMNA DERECHA (Vacía para mostrar la foto)
+   COLUMNA DERECHA (Vacía)
    ============================================================= */
 .hero__visual{
   display:block;
@@ -390,7 +390,7 @@ body:has(.splash-mode){
 .splash-footer {
   position: relative; 
   z-index: 10;
-  padding: 24px 0;
+  padding: 16px 0; /* Footer más delgado */
   
   background: rgba(255, 255, 255, 0.4) !important; 
   backdrop-filter: blur(20px) !important;
@@ -466,7 +466,7 @@ body:has(.splash-mode){
   .splash-main .hero__grid { padding-left: 4vw; }
 }
 
-/* Tablets */
+/* Tablets y Laptops pequeñas */
 @media (max-width: 1024px){
   body {
     background-image: url('../img/app/img1tablet.png') !important;
@@ -503,15 +503,16 @@ body:has(.splash-mode){
     max-height:none;
     padding-left: 0; 
   }
-  .hero__copy { margin-inline: auto; align-items: center; padding-left:0; }
+  .hero__copy { margin-inline: auto; align-items: center; padding-left:0; gap: 20px; }
   
-  /* Ajuste del logo en móvil */
-  .hero__brand { justify-content: center; }
+  .hero__brand { justify-content: center; margin-bottom: 0; }
+  .hero__brand-name { font-size: 2.2rem; }
+  .hero__brand-logo { width: 52px; height: 52px; }
   
   .eyebrow { align-self: center; }
   .hero__social-proof{align-self:center}
   .hero h1 { max-width: none; font-size: clamp(2.4rem, 7vw, 3.4rem); }
-  .hero__lead { margin-inline: auto; }
+  .hero__lead { margin-inline: auto; font-size: 1.1rem; }
   .hero__benefits{align-items:center}
   .hero__actions { justify-content: center; }
   .hero__cta-note{justify-content:center}
