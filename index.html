@@ -27,11 +27,11 @@
         
         <main class="splash-main" id="main">
           
-          <!-- FONDO GLOBAL (Imagen del perrito y gatito) -->
+          <!-- FONDO GLOBAL (Se controla desde el CSS en el body) -->
           <div class="hero__bg" aria-hidden="true"></div>
 
           <div class="container hero__grid">
-            <!-- COLUMNA IZQUIERDA (Texto) -->
+            <!-- COLUMNA IZQUIERDA (Texto principal) -->
             <div class="hero__copy reveal">
               
               <div class="hero__social-proof">
@@ -109,51 +109,10 @@
               </div>
             </div>
 
-            <!-- COLUMNA DERECHA (Teléfono + Tarjetas) -->
+            <!-- COLUMNA DERECHA (Solo Tarjetas Flotantes) -->
             <div class="hero__visual reveal" data-tilt data-tilt-strength="3">
               
-              <!-- TELÉFONO -->
-              <div class="splash-device">
-                <div class="splash-device__notch"></div>
-                <div class="splash-carousel">
-                  
-                  <figure class="splash-slide is-active" data-type="logo">
-                    <div class="splash-slide__inner splash-slide__inner--dog">
-                      <div class="slide-dog-overlay"></div>
-                      <img src="/assets/img/petmate-mark.jpg" alt="PetMate Logo" class="logo-img" loading="eager" />
-                      <span class="logo-tagline">Cuida su salud 🐾</span>
-                    </div>
-                  </figure>
-
-                  <figure class="splash-slide">
-                    <div class="splash-slide__inner">
-                      <img src="/assets/img/app/bienvenida.png" alt="Pantalla de bienvenida" loading="lazy" />
-                    </div>
-                  </figure>
-                  
-                  <figure class="splash-slide">
-                    <div class="splash-slide__inner">
-                      <img src="/assets/img/app/mascotas.png" alt="Lista de mascotas" loading="lazy" />
-                    </div>
-                  </figure>
-                  
-                  <figure class="splash-slide">
-                    <div class="splash-slide__inner">
-                      <img src="/assets/img/app/carnet.png" alt="Carnet digital" loading="lazy" />
-                    </div>
-                  </figure>
-                  
-                  <figure class="splash-slide">
-                    <div class="splash-slide__inner">
-                      <img src="/assets/img/app/qr.png" alt="Compartir QR" loading="lazy" />
-                    </div>
-                  </figure>
-                  
-                </div>
-                <div class="splash-device__home-indicator"></div>
-              </div>
-
-              <!-- FLOAT CARDS -->
+              <!-- TARJETA: VACUNA -->
               <div class="float-card float-card--vaccine" data-float="slow">
                 <div class="float-card__icon float-card__icon--mint">
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -168,6 +127,7 @@
                 </div>
               </div>
 
+              <!-- TARJETA: COMPARTIR -->
               <div class="float-card float-card--share" data-float="fast">
                 <div class="float-card__icon float-card__icon--orange">
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -184,6 +144,7 @@
                 </div>
               </div>
 
+              <!-- TARJETA: TESTIMONIO -->
               <div class="float-card float-card--quote" data-float="medium">
                 <div class="quote-avatar" aria-hidden="true">
                   <img src="/assets/img/dogs/image3.png" alt="" />

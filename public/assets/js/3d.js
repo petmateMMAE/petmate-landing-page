@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  /* 1. TILT 3D SUAVE en el teléfono */
+  /* 1. TILT 3D SUAVE en el teléfono (ahora en las tarjetas) */
   const tiltEls = document.querySelectorAll('[data-tilt]');
   tiltEls.forEach((el) => {
     const strength = parseFloat(el.dataset.tiltStrength || '3');
@@ -64,24 +64,4 @@
     card.style.animationDuration = duration;
   });
 
-  /* 4. CARRUSEL AUTOMÁTICO del teléfono */
-  const slides = document.querySelectorAll('.splash-slide');
-  if (slides.length > 1 && !window.__carouselInit) {
-    window.__carouselInit = true;
-    let current = 0;
-
-    setInterval(() => {
-      slides[current].classList.remove('is-active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('is-active');
-    }, 4000);
-  }
-
-  /* 5. REVEAL al cargar */
-  window.addEventListener('load', () => {
-    document.querySelectorAll('.reveal').forEach((el) => {
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-    });
-  });
 })();
