@@ -31,6 +31,7 @@
           <div class="hero__bg" aria-hidden="true"></div>
 
           <div class="container hero__grid">
+            
             <!-- COLUMNA IZQUIERDA (Texto principal) -->
             <div class="hero__copy reveal">
               
@@ -109,53 +110,9 @@
               </div>
             </div>
 
-            <!-- COLUMNA DERECHA (Solo Tarjetas Flotantes) -->
-            <div class="hero__visual reveal" data-tilt data-tilt-strength="3">
-              
-              <!-- TARJETA: VACUNA -->
-              <div class="float-card float-card--vaccine" data-float="slow">
-                <div class="float-card__icon float-card__icon--mint">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <path d="m9 12 2 2 4-4"/>
-                  </svg>
-                </div>
-                <div class="float-card__body">
-                  <span class="float-card__label">Próxima vacuna</span>
-                  <strong class="float-card__title">Refuerzo · Luna 🐶</strong>
-                  <span class="float-card__meta">En 3 días · Recordatorio activo</span>
-                </div>
-              </div>
-
-              <!-- TARJETA: COMPARTIR -->
-              <div class="float-card float-card--share" data-float="fast">
-                <div class="float-card__icon float-card__icon--orange">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="7" height="7" rx="1"/>
-                    <rect x="14" y="3" width="7" height="7" rx="1"/>
-                    <rect x="3" y="14" width="7" height="7" rx="1"/>
-                    <path d="M14 14h7v7h-7z"/>
-                  </svg>
-                </div>
-                <div class="float-card__body">
-                  <span class="float-card__label">Compartir carnet</span>
-                  <strong class="float-card__title">Vet · Dra. Martínez</strong>
-                  <span class="float-card__meta">Acceso temporal · 24h</span>
-                </div>
-              </div>
-
-              <!-- TARJETA: TESTIMONIO -->
-              <div class="float-card float-card--quote" data-float="medium">
-                <div class="quote-avatar" aria-hidden="true">
-                  <img src="/assets/img/dogs/image3.png" alt="" />
-                </div>
-                <div class="float-card__body">
-                  <p class="quote-text">"Salvé la cita de vacunas de Rocky. PetMate me avisó justo a tiempo."</p>
-                  <span class="quote-author">— Andrea R. · mamá de Rocky</span>
-                </div>
-              </div>
-
-            </div>
+            <!-- COLUMNA DERECHA (Vacía, para dejar ver la foto de fondo) -->
+            <div class="hero__visual reveal"></div>
+            
           </div>
         </main>
 
@@ -175,6 +132,7 @@
       </div>
     </div>
 
+    <!-- El script 3d.js se mantiene para el efecto del botón magnético -->
     <script type="module" src="/assets/js/3d.js"></script>
   </body>
 </html>

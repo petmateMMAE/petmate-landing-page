@@ -1,5 +1,5 @@
 /* =============================================================
-   PETMATE — VIP MINIMALIST EMOTIONAL UI (SIN TELÉFONO)
+   PETMATE — VIP MINIMALIST EMOTIONAL UI (SIN TELÉFONO NI TARJETAS)
    ============================================================= */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -35,7 +35,7 @@
 html{scroll-behavior:smooth}
 
 /* =============================================================
-   FONDO (NUEVA IMAGEN DE FAMILIA)
+   FONDO (IMAGEN DE FAMILIA)
    ============================================================= */
 html, body, #root {
   background-color: transparent !important;
@@ -51,15 +51,15 @@ body{
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
   
-  /* RUTA DE LA NUEVA IMAGEN */
+  /* Imagen de fondo */
   background-image: url('../img/app/imlaptop1.png') !important; 
   background-size: cover !important;
-  background-position: center right !important; /* Enfoca a la familia a la derecha */
+  background-position: center right !important; /* La familia a la derecha */
   background-repeat: no-repeat !important;
   background-attachment: fixed !important;
 }
 
-/* Velo para que el texto de la izquierda se lea perfecto sin tapar a la familia */
+/* Velo para legibilidad (solo a la izquierda) */
 body::before {
   content: '';
   position: fixed;
@@ -86,7 +86,7 @@ p{color:var(--muted)}
 :focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:8px}
 
 /* =============================================================
-   LAYOUT PRINCIPAL (Texto a la izquierda, tarjetas flotantes a la derecha)
+   LAYOUT PRINCIPAL
    ============================================================= */
 body:has(.splash-mode){
   overflow:hidden;
@@ -112,7 +112,7 @@ body:has(.splash-mode){
   flex:1;
   display:flex;
   align-items:center;
-  justify-content:center; /* Centra el contenido general */
+  justify-content:center; 
   position:relative;
   overflow:hidden;
   padding:24px 0;
@@ -122,7 +122,7 @@ body:has(.splash-mode){
   height:100%;max-height:760px;
   align-items:center;padding:0;
   display:grid;
-  /* 2 columnas: Texto (50%) y Espacio para tarjetas (50%) */
+  /* 50% para el texto, 50% para el espacio vacío de la foto */
   grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
   gap:clamp(24px, 4vw, 60px);
   max-width:var(--max);
@@ -130,7 +130,7 @@ body:has(.splash-mode){
   width:100%;
   position:relative;
   z-index:2;
-  padding-left: 8vw; /* Margen para que el texto no pegue en el borde */
+  padding-left: 8vw; 
 }
 
 /* =============================================================
@@ -352,121 +352,17 @@ body:has(.splash-mode){
 .trust-badge__icon{font-size:.85rem;line-height:1}
 
 /* =============================================================
-   COLUMNA DERECHA — SOLO TARJETAS FLOTANTES
+   COLUMNA DERECHA (Vacía para mostrar la foto)
    ============================================================= */
 .hero__visual{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  perspective:1400px;
+  display:block;
   width:100%;
   height:100%;
   z-index: 2;
-  /* Aquí dejamos el espacio para que la imagen de fondo familiar brille */
 }
 
 /* =============================================================
-   FLOAT CARDS (Reposicionadas para llenar el espacio)
-   ============================================================= */
-.float-card{
-  position:absolute;
-  z-index:5;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:12px 16px 12px 12px;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,.8);
-  border-radius:16px;
-  box-shadow:
-    0 2px 4px rgba(34,81,127,.04),
-    0 12px 32px -8px rgba(34,81,127,.18),
-    0 0 0 1px rgba(34,81,127,.04);
-  max-width:240px;
-  animation:cardFloat 6s ease-in-out infinite;
-}
-@keyframes cardFloat{
-  0%,100%{transform:translateY(0) rotate(0deg)}
-  50%{transform:translateY(-8px) rotate(-.5deg)}
-}
-
-/* Las movemos un poco para que parezcan estar esparcidas en el aire */
-.float-card--vaccine{
-  top: 15%;
-  left: 10%;
-  animation-delay:0s;
-}
-.float-card--share{
-  bottom: 25%;
-  right: 5%;
-  animation-delay:-2s;
-}
-.float-card--quote{
-  bottom: 10%;
-  left: -10%; /* Se sale un poco hacia el centro para llamar la atención */
-  max-width:280px;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:8px;
-  padding:14px 16px;
-  animation-delay:-4s;
-}
-
-.float-card__icon{
-  width:36px;height:36px;border-radius:10px;
-  display:grid;place-items:center;flex-shrink:0;
-}
-.float-card__icon--mint{
-  background:rgba(63,199,158,.12);
-  color:var(--mint-deep);
-}
-.float-card__icon--orange{
-  background:rgba(242,162,99,.15);
-  color:var(--orange-deep);
-}
-
-.float-card__body{display:flex;flex-direction:column;gap:1px;min-width:0}
-.float-card__label{
-  font-size:.65rem;font-weight:700;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--muted);
-}
-.float-card__title{
-  font-family:var(--font-display);
-  font-size:.85rem;font-weight:700;color:var(--navy-ink);
-  letter-spacing:-.01em;line-height:1.15;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.float-card__meta{
-  font-size:.7rem;color:var(--muted);font-weight:500;line-height:1.2;
-}
-
-.quote-avatar{
-  width:36px;height:36px;border-radius:50%;
-  overflow:hidden;flex-shrink:0;
-  background:var(--orange-wash);
-  display:grid;place-items:center;
-  border:2px solid #fff;
-  box-shadow:0 2px 6px rgba(0,0,0,.1);
-}
-.quote-avatar img{
-  width:100%;height:100%;object-fit:cover;
-}
-.quote-text{
-  font-size:.78rem;line-height:1.4;
-  color:var(--ink-2);font-weight:500;
-  font-style:italic;
-}
-.quote-author{
-  font-size:.68rem;font-weight:600;
-  color:var(--orange-deep);
-  letter-spacing:.02em;
-}
-
-/* =============================================================
-   FOOTER PREMIUM (FORZADO A CRISTAL)
+   FOOTER PREMIUM (CRISTAL)
    ============================================================= */
 .splash-footer {
   position: relative; 
@@ -594,7 +490,7 @@ body:has(.splash-mode){
   .hero__cta-note{justify-content:center}
   .hero__trust-badges{justify-content:center}
   
-  /* En móvil, ocultamos las tarjetas flotantes porque estorban con el fondo */
+  /* Ocultamos la columna derecha vacía en móvil */
   .hero__visual { display: none; }
   
   .splash-footer { padding: 24px 0; }
