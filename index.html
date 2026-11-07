@@ -27,7 +27,7 @@
         
         <main class="splash-main" id="main">
           
-          <!-- FONDO GLOBAL (Se controla desde el CSS en el body) -->
+          <!-- FONDO GLOBAL -->
           <div class="hero__bg" aria-hidden="true"></div>
 
           <div class="container hero__grid">
@@ -35,6 +35,12 @@
             <!-- COLUMNA IZQUIERDA (Texto principal) -->
             <div class="hero__copy reveal">
               
+              <!-- NUEVO LOGO Y NOMBRE DE LA APP -->
+              <div class="hero__brand">
+                <img src="/assets/img/petmate-mark.jpg" alt="PetMate Logo" class="hero__brand-logo" />
+                <span class="hero__brand-name">PetMate</span>
+              </div>
+
               <div class="hero__social-proof">
                 <div class="avatar-stack" aria-hidden="true">
                   <span class="avatar" style="background-image:url('./public/assets/img/dogs/image2.png')"></span>
@@ -110,7 +116,7 @@
               </div>
             </div>
 
-            <!-- COLUMNA DERECHA (Vacía, para dejar ver la foto de fondo) -->
+            <!-- COLUMNA DERECHA (Vacía) -->
             <div class="hero__visual reveal"></div>
             
           </div>
@@ -132,7 +138,6 @@
       </div>
     </div>
 
-    <!-- El script 3d.js se mantiene para el efecto del botón magnético -->
     <script type="module" src="/assets/js/3d.js"></script>
   </body>
 </html>

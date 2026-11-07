@@ -1,5 +1,5 @@
 /* =============================================================
-   PETMATE — VIP MINIMALIST EMOTIONAL UI (SIN TELÉFONO NI TARJETAS)
+   PETMATE — VIP MINIMALIST EMOTIONAL UI (CON LOGO DESTACADO)
    ============================================================= */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -51,15 +51,13 @@ body{
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
   
-  /* Imagen de fondo */
   background-image: url('../img/app/imlaptop1.png') !important; 
   background-size: cover !important;
-  background-position: center right !important; /* La familia a la derecha */
+  background-position: center right !important; 
   background-repeat: no-repeat !important;
   background-attachment: fixed !important;
 }
 
-/* Velo para legibilidad (solo a la izquierda) */
 body::before {
   content: '';
   position: fixed;
@@ -122,7 +120,6 @@ body:has(.splash-mode){
   height:100%;max-height:760px;
   align-items:center;padding:0;
   display:grid;
-  /* 50% para el texto, 50% para el espacio vacío de la foto */
   grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
   gap:clamp(24px, 4vw, 60px);
   max-width:var(--max);
@@ -145,6 +142,32 @@ body:has(.splash-mode){
   padding-bottom: 20px;
   padding-left: 0; 
 }
+
+/* NUEVO: ESTILOS DEL LOGO Y NOMBRE DE LA APP */
+.hero__brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.hero__brand-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px -6px rgba(34,81,127,.25), 0 0 0 2px rgba(255,255,255,.8);
+  object-fit: cover;
+}
+
+.hero__brand-name {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--navy-ink);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+/* ------------------------------------- */
 
 .hero__social-proof {
   display: flex;
@@ -481,6 +504,10 @@ body:has(.splash-mode){
     padding-left: 0; 
   }
   .hero__copy { margin-inline: auto; align-items: center; padding-left:0; }
+  
+  /* Ajuste del logo en móvil */
+  .hero__brand { justify-content: center; }
+  
   .eyebrow { align-self: center; }
   .hero__social-proof{align-self:center}
   .hero h1 { max-width: none; font-size: clamp(2.4rem, 7vw, 3.4rem); }
@@ -490,7 +517,6 @@ body:has(.splash-mode){
   .hero__cta-note{justify-content:center}
   .hero__trust-badges{justify-content:center}
   
-  /* Ocultamos la columna derecha vacía en móvil */
   .hero__visual { display: none; }
   
   .splash-footer { padding: 24px 0; }
