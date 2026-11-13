@@ -1,5 +1,5 @@
 /* =============================================================
-   PETMATE — VIP MINIMALIST (CON REDES SOCIALES Y FIX MÓVIL)
+   PETMATE — VIP MINIMALIST (REDES CON CONTRASTE PREMIUM)
    ============================================================= */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -269,13 +269,13 @@ body:has(.splash-mode){
 }
 
 /* =============================================================
-   FOOTER PREMIUM (CRISTAL + REDES SOCIALES)
+   FOOTER PREMIUM (CRISTAL + REDES CON CONTRASTE)
    ============================================================= */
 .splash-footer {
   position: relative; 
   z-index: 10;
   padding: 16px 0; 
-  background: rgba(255, 255, 255, 0.6) !important; /* Un poco más sólido para contraste */
+  background: rgba(255, 255, 255, 0.6) !important; 
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.8) !important;
@@ -307,7 +307,7 @@ body:has(.splash-mode){
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* NUEVO: REDES SOCIALES */
+/* REDES SOCIALES CON CONTRASTE MEJORADO */
 .splash-footer__socials {
   display: flex;
   align-items: center;
@@ -319,21 +319,24 @@ body:has(.splash-mode){
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
+  /* Fondo blanco sólido para máximo contraste sobre el cristal */
+  background: var(--white);
+  /* Color de ícono azul oscuro de la marca */
   color: var(--navy-ink);
-  border: 1px solid rgba(34, 81, 127, 0.1);
-  transition: all 0.2s var(--ease-out);
+  /* Sombra suave para darle profundidad 3D */
+  box-shadow: 0 4px 10px rgba(34, 81, 127, 0.1);
+  transition: all 0.25s var(--ease-out);
 }
 
+/* Efecto hover: Se llena del color naranja de la marca */
 .splash-footer__socials a:hover {
-  background: var(--orange-wash);
-  color: var(--orange-deep);
-  border-color: var(--orange);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(242, 162, 99, 0.2);
+  background: var(--orange-deep);
+  color: var(--white);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(220, 129, 64, 0.4);
 }
 
 .splash-footer__socials svg {
@@ -345,7 +348,7 @@ body:has(.splash-mode){
   display: flex; 
   align-items: center; 
   gap: 28px; 
-  padding-right: 120px; /* Para el logo de Netlify */
+  padding-right: 120px; 
 }
 
 .splash-footer__links a {
@@ -383,7 +386,6 @@ body:has(.splash-mode){
   .splash-main .hero__grid { padding-left: 4vw; }
 }
 
-/* Tablets y Laptops */
 @media (max-width: 1024px){
   body {
     background-image: url('../img/app/imlaptop1.png') !important;
@@ -395,14 +397,13 @@ body:has(.splash-mode){
   .splash-footer__inner { padding-inline: 24px; }
 }
 
-/* Móviles */
 @media (max-width: 900px) {
   body:has(.splash-mode){overflow:auto;height:auto}
   .site-shell.splash-mode{height:auto;min-height:100svh;overflow:visible;}
   
   body {
     background-image: url('../img/app/img_2movil.png') !important;
-    background-position: center top !important; /* Ajustado para que no choque con el footer */
+    background-position: center top !important; 
     background-attachment: scroll !important; 
   }
   body::before {
@@ -410,7 +411,7 @@ body:has(.splash-mode){
   }
 
   .splash-main{
-    padding: 40px 0 80px 0; /* Espacio extra abajo para que el contenido no toque el footer */
+    padding: 40px 0 80px 0; 
   }
   
   .splash-main .hero__grid { 
@@ -435,10 +436,9 @@ body:has(.splash-mode){
   
   .hero__visual { display: none; }
   
-  /* FOOTER MÓVIL ORDENADO */
   .splash-footer { 
     padding: 32px 0; 
-    background: rgba(255, 255, 255, 0.85) !important; /* Más sólido en móvil para evitar que se pierda */
+    background: rgba(255, 255, 255, 0.85) !important; 
   }
   .splash-footer__inner { 
     flex-direction: column; 
