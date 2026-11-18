@@ -51,7 +51,7 @@ body{
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
   
-  background-image: url('../img/app/imlaptop1.png') !important; 
+  background-image: url('../img/app/PetMate-fondo-desktop.webp') !important; 
   background-size: cover !important;
   background-position: center right !important; 
   background-repeat: no-repeat !important;
@@ -388,7 +388,7 @@ body:has(.splash-mode){
 
 @media (max-width: 1024px){
   body {
-    background-image: url('../img/app/imlaptop1.png') !important;
+    background-image: url('../img/app/PetMate-fondo-desktop.webp') !important;
     background-position: center top !important; 
   }
   body::before {
@@ -402,7 +402,7 @@ body:has(.splash-mode){
   .site-shell.splash-mode{height:auto;min-height:100svh;overflow:visible;}
   
   body {
-    background-image: url('../img/app/img_2movil.png') !important;
+    background-image: url('../img/app/PetMate-fondo-mobile.webp') !important;
     background-position: center top !important; 
     background-attachment: scroll !important; 
   }
