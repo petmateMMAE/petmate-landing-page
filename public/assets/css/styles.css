@@ -411,15 +411,14 @@ body:has(.splash-mode){
 
   .splash-main{
     display: block;
-    padding: clamp(80px, 18svh, 180px) 0 0;
+    padding: clamp(40px, 7svh, 80px) 0 0;
     overflow: visible;
   }
   .splash-main::after {
     content: '';
     display: block;
     width: 100%;
-    aspect-ratio: 768 / 1365;
-    margin-top: -120px;
+    height: clamp(380px, 52svh, 460px);
     background: url('../img/app/PetMate-fondo-movil.webp') center bottom / cover no-repeat;
   }
   
@@ -446,13 +445,13 @@ body:has(.splash-mode){
   .hero__visual { display: none; }
   
   .splash-footer { 
-    padding: 32px 0; 
+    padding: 20px 0;
     background: rgba(255, 255, 255, 0.85) !important; 
   }
   .splash-footer__inner { 
     flex-direction: column; 
     text-align: center; 
-    gap: 20px; 
+    gap: 14px;
   }
   
   .splash-footer__brand {
@@ -461,7 +460,7 @@ body:has(.splash-mode){
   
   .splash-footer__socials {
     order: 2;
-    margin: 8px 0;
+    margin: 4px 0;
   }
   
   .splash-footer__links { 

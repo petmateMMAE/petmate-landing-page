@@ -52,7 +52,7 @@ function Brand({ footer = false }) {
   }
   return (
     <a href="#inicio" className="brand" aria-label="PetMate, ir al inicio">
-      <img src="/assets/img/petmate-mark.jpg" alt="" className="brand__mark" width="44" height="44" />
+      <img src="/assets/img/petmate-mark.webp" alt="" className="brand__mark" width="44" height="44" />
       <span>PetMate</span>
     </a>
   );
@@ -240,7 +240,7 @@ export default function App() {
                 className="hero__logo"
                 data-tilt
                 data-tilt-strength="10"
-                src="/assets/img/petmate-mark.jpg"
+                src="/assets/img/petmate-mark.webp"
                 alt=""
                 width="350"
                 height="350"
@@ -460,7 +460,7 @@ export default function App() {
         <section className="section business" id="negocios">
           <Reveal className="container business__inner tilt" data-tilt data-tilt-strength="4">
             <div className="business__mark">
-              <img src="/assets/img/petmate-mark.jpg" alt="" loading="lazy" />
+              <img src="/assets/img/petmate-mark.webp" alt="" loading="lazy" />
             </div>
             <div className="business__copy">
               <span className="eyebrow eyebrow--light">Para profesionales veterinarios</span>

@@ -40,7 +40,7 @@ export function seoAnalytics(env) {
         const title = html.match(/<title>([^<]+)<\/title>/i)?.[1]?.trim() || 'PetMate';
         const description = html.match(/<meta\s+name="description"\s+content="([^"]+)"/i)?.[1] || '';
         const canonical = new URL(path, base).href;
-        const image = new URL('/assets/img/petmate-mark.jpg', base).href;
+        const image = new URL('/assets/img/petmate-mark.webp', base).href;
         const robots = DRAFT_PAGES.has(path) ? 'noindex, follow' : 'index, follow';
         const schema = path === '/' ? JSON.stringify({
           '@context': 'https://schema.org', '@graph': [
@@ -49,7 +49,7 @@ export function seoAnalytics(env) {
           ],
         }) : '';
         const tags = [
-          ...(!/<link\s+rel="icon"/i.test(html) ? ['<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><text y=%2226%22 font-size=%2226%22>🐾</text></svg>" />'] : []),
+          ...(!/<link\s+rel="icon"/i.test(html) ? ['<link rel="icon" href="/favicon.png" type="image/png" />'] : []),
           `<meta name="robots" content="${robots}" />`,
           `<link rel="canonical" href="${escapeHtml(canonical)}" />`,
           `<meta property="og:type" content="website" />`,
