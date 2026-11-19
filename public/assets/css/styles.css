@@ -402,16 +402,25 @@ body:has(.splash-mode){
   .site-shell.splash-mode{height:auto;min-height:100svh;overflow:visible;}
   
   body {
-    background-image: url('../img/app/PetMate-fondo-mobile.webp') !important;
-    background-position: center top !important; 
-    background-attachment: scroll !important; 
+    background-color: var(--paper) !important;
+    background-image: none !important;
   }
   body::before {
-    background: linear-gradient(180deg, rgba(251,249,243,0.95) 0%, rgba(251,249,243,0.7) 40%, transparent 80%) !important;
+    display: none;
   }
 
   .splash-main{
-    padding: 40px 0 80px 0; 
+    display: block;
+    padding: clamp(80px, 18svh, 180px) 0 0;
+    overflow: visible;
+  }
+  .splash-main::after {
+    content: '';
+    display: block;
+    width: 100%;
+    aspect-ratio: 768 / 1365;
+    margin-top: -120px;
+    background: url('../img/app/PetMate-fondo-movil.webp') center bottom / cover no-repeat;
   }
   
   .splash-main .hero__grid { 

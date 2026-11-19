@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'node:path';
+import { loadEnv } from 'vite';
+import { seoAnalytics } from './scripts/seo-analytics.mjs';
 
-export default defineConfig({
-  plugins: [react()],
+export default defineConfig(({ mode }) => ({
+  plugins: [react(), seoAnalytics(loadEnv(mode, process.cwd(), ''))],
   build: {
     rollupOptions: {
       input: {
@@ -20,4 +22,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));
